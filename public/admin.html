@@ -203,7 +203,8 @@ function loadMap(){
           .bindPopup(`<b>${w.name}</b><br>${w.service}`);
       }
     });
-
+fetch(`/api/bookings/approve/${id}`, { method: "PUT" })
+fetch(`/api/bookings/reject/${id}`, { method: "PUT" })    
   });
 }
 
