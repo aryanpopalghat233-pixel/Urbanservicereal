@@ -23,3 +23,24 @@ app.get('/api/bookings', async (req, res) => {
   const bookings = await Booking.find().populate('assignedWorker');
   res.json(bookings);
 });
+app.put('/api/bookings/approve/:id', async (req, res) => {
+
+  const workers = await Worker.find({ available: true });
+
+  if (workers.length === 0) {
+    return res.json({ message: "No workers available" });
+  }
+
+  const randomWorker = workers[Math.floor(Math.random() * workers.length)];
+
+  const booking = await Booking.findByIdAndUpdate(
+    req.params.id,
+    {
+      status: "Approved",
+      assignedWorker: randomWorker._id
+    },
+    { new: true }
+  );
+
+  res.json(booking);
+});
