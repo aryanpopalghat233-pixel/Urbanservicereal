@@ -140,22 +140,37 @@ function loadBookings(){
 
       let row = table.insertRow();
 
+      // 🎨 Row color based on status
+      if(status === "Approved") row.style.background = "#d4edda";
+      if(status === "Rejected") row.style.background = "#f8d7da";
+      if(status === "Pending") row.style.background = "#fff3cd";
+
       row.insertCell(0).innerText = b.name;
       row.insertCell(1).innerText = b.service;
       row.insertCell(2).innerText = b.address;
-      row.insertCell(3).innerText = status;
+
+      let statusCell = row.insertCell(3);
+      statusCell.innerText = status;
 
       let actionCell = row.insertCell(4);
 
       let approveBtn = document.createElement("button");
       approveBtn.innerText = "Approve";
+
+      let rejectBtn = document.createElement("button");
+      rejectBtn.innerText = "Reject";
+
+      // 🚫 Disable buttons if already decided
+      if(status !== "Pending"){
+        approveBtn.disabled = true;
+        rejectBtn.disabled = true;
+      }
+
       approveBtn.onclick = () => {
         localStorage.setItem("booking_"+index, "Approved");
         location.reload();
       };
 
-      let rejectBtn = document.createElement("button");
-      rejectBtn.innerText = "Reject";
       rejectBtn.onclick = () => {
         localStorage.setItem("booking_"+index, "Rejected");
         location.reload();
