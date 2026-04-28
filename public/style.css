@@ -1,0 +1,58 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f7fa;
+}
+
+header {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+}
+
+section {
+  padding: 30px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+input, select, button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #667eea;
+  color: white;
+  border: none;
+}
+
+#map {
+  height: 400px;
+}
