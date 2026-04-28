@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URBANSERVICE</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+
+<header>
+  <h1>URBANSERVICE</h1>
+  <p>Premium Home Services at Your Doorstep</p>
+</header>
+
+<section class="services">
+  <h2>Services</h2>
+  <div class="cards">
+    <div class="card" onclick="selectService('Home Cleaning')">Home Cleaning</div>
+    <div class="card" onclick="selectService('Plumber')">Plumber</div>
+    <div class="card" onclick="selectService('Appliance Repair')">Appliance Repair</div>
+    <div class="card" onclick="selectService('Salon & Spa')">Salon & Spa</div>
+    <div class="card" onclick="selectService('Pest Control')">Pest Control</div>
+  </div>
+</section>
+
+<section id="serviceDetails"></section>
+
+<section>
+  <h2>Book Service</h2>
+  <form id="bookingForm">
+    <input placeholder="Name" id="bname" required>
+    <input placeholder="Phone" id="bphone" required>
+    <input placeholder="Address" id="baddress" required>
+    <input placeholder="Service" id="bservice" required>
+    <input type="date" id="bdate" required>
+    <button>Book Now</button>
+  </form>
+</section>
+
+<section>
+  <h2>Worker Application</h2>
+  <form id="workerForm">
+    <input placeholder="Name" id="wname" required>
+    <input placeholder="Phone" id="wphone" required>
+    <select id="wservice">
+      <option>Home Cleaning</option>
+      <option>Plumber</option>
+      <option>Appliance Repair</option>
+      <option>Salon & Spa</option>
+      <option>Pest Control</option>
+    </select>
+    <input placeholder="Latitude" id="lat" required>
+    <input placeholder="Longitude" id="lng" required>
+    <button>Apply</button>
+  </form>
+</section>
+
+<section>
+  <h2>Live Worker Map</h2>
+  <div id="map"></div>
+</section>
+
+<section>
+  <h2>Admin Panel</h2>
+  <div id="admin"></div>
+</section>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
