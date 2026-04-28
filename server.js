@@ -68,3 +68,4 @@ app.put('/api/bookings/reject/:id', async (req, res) => {
 
   res.json(booking);
 });
+L.marker([worker.lat, worker.lng])
