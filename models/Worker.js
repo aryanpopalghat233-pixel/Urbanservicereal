@@ -1,11 +1,16 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const workerSchema = new mongoose.Schema({
+const WorkerSchema = new mongoose.Schema({
   name: String,
-  phone: String,
   service: String,
+
   lat: Number,
-  lng: Number
+  lng: Number,
+
+  available: {
+    type: Boolean,
+    default: true
+  }
 });
 
-module.exports = mongoose.model("Worker", workerSchema);
+module.exports = mongoose.model('Worker', WorkerSchema);
