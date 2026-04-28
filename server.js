@@ -44,3 +44,12 @@ app.put('/api/bookings/approve/:id', async (req, res) => {
 
   res.json(booking);
 });
+app.put('/api/bookings/reject/:id', async (req, res) => {
+  const booking = await Booking.findByIdAndUpdate(
+    req.params.id,
+    { status: "Rejected", assignedWorker: null },
+    { new: true }
+  );
+
+  res.json(booking);
+});
